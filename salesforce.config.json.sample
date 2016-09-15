@@ -1,0 +1,6 @@
+{
+  "SF_USERNAME": "USERNAME",
+  "SF_PASSWORD": "PASSWORD",
+  "SF_SECURITYTOKEN": "SECURITY_TOKEN",
+  "SF_SERVERURL": "https://login.salesforce.com"
+}

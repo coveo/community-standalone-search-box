@@ -1,0 +1,29 @@
+{
+  "name": "community-standalone-search-box",
+  "version": "0.0.1",
+  "description": "Simple lighting component to create a Coveo Standalone Search Box in a Salesforce Community",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coveo/community-standalone-search-box.git"
+  },
+  "author": "Coveo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coveo/community-standalone-search-box/issues"
+  },
+  "homepage": "https://github.com/coveo/community-standalone-search-box#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jsforce-deploy": "^1.1.2",
+    "gulp-zip": "^3.2.0",
+    "install": "^0.8.1",
+    "npm": "^3.10.7"
+  }
+}

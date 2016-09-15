@@ -1,0 +1,16 @@
+.THIS.CoveoV2Base {
+    opacity: 1;
+}
+
+.THIS {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.THIS .CoveoSearchButton {
+    background-color: white;
+}
+
+.THIS#CoveoInterfaceEditorToolbox {
+    display: none;
+}
