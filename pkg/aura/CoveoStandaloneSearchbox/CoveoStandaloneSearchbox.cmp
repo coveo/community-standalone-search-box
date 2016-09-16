@@ -3,9 +3,6 @@
   <aura:attribute name="searchUrl" type="String" default="coveosearch" />
   <aura:attribute name="name" type="String" default="communitySearchbox" />
 
-  <aura:set attribute='name' value='communitySearchbox' />
-
-
   <ltng:require scripts="/resource/CoveoV2__resources/js/jquery.js?v=890405159,/resource/CoveoV2__JsSearch/js/CoveoJsSearch.js?v=890405159,/resource/CoveoV2__JsSearch/js/CoveoJsSearch.Dependencies.js?v=890405159,/resource/CoveoV2__Lightning/js/CoveoJsSearch_Lightning.js?v=890405159,/resource/CoveoV2__resources/js/underscore-1.6.0.min.js?v=890405159"
     styles="/resource/CoveoV2__JsSearch/css/CoveoFullSearchNewDesign.css?v=890405159" afterScriptsLoaded="{!c.onScriptLoaded}"
   />
