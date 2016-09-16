@@ -1,16 +1,11 @@
-.THIS.CoveoV2Base {
-    opacity: 1;
-}
-
 .THIS {
-    max-width: 1000px;
-    margin: auto;
+    opacity: 1;
 }
 
 .THIS .CoveoSearchButton {
     background-color: white;
 }
 
-.THIS#CoveoInterfaceEditorToolbox {
+.THIS#CoveoPageCreator, .THIS#CoveoPageDeleter, .THIS#CoveoPageContent, .THIS#CoveoErrorTitle, .THIS#CoveoErrorInfoAdmin {
     display: none;
 }

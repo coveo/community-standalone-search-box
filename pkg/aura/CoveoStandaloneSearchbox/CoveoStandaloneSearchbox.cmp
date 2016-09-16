@@ -1,20 +1,16 @@
-<aura:component implements='forceCommunity:searchInterface'>
-    <aura:attribute name="searchHub" type="String" default="communitySearchbox"/>
-    <aura:attribute name="searchUrl" type="String" default="coveosearch"/>
-    <aura:attribute name="name" type="String" default="communitySearchbox"/>
-    <aura:attribute name='autoInjectBasicQuery' type='Boolean' default='false'/>
-    <aura:attribute name='autoInjectBasicOptions' type='Boolean' default='true'/>
-    <aura:attribute name='debug' type='Boolean' default='true' />
+<aura:component implements='forceCommunity:searchInterface' controller='CoveoStandaloneSearchbox'>
+  <aura:attribute name="searchHub" type="String" default="communitySearchbox" />
+  <aura:attribute name="searchUrl" type="String" default="coveosearch" />
+  <aura:attribute name="name" type="String" default="communitySearchbox" />
+
+  <aura:set attribute='name' value='communitySearchbox' />
 
 
-    <div class="image-wrapper" >
-        <div class="no-assigned-image" >
-            <div class="default-bg-overlay" ></div>
-        </div>
-    </div>
+  <ltng:require scripts="/resource/CoveoV2__resources/js/jquery.js?v=890405159,/resource/CoveoV2__JsSearch/js/CoveoJsSearch.js?v=890405159,/resource/CoveoV2__JsSearch/js/CoveoJsSearch.Dependencies.js?v=890405159,/resource/CoveoV2__Lightning/js/CoveoJsSearch_Lightning.js?v=890405159,/resource/CoveoV2__resources/js/underscore-1.6.0.min.js?v=890405159"
+    styles="/resource/CoveoV2__JsSearch/css/CoveoFullSearchNewDesign.css?v=890405159" afterScriptsLoaded="{!c.onScriptLoaded}"
+  />
 
-    <CoveoV2:Search aura:id="StandaloneSearchbox" name="communitySearchbox"/>
-
-    <aura:handler name="CoveoV2:ResourcesLoaded" event="CoveoV2:ResourcesLoaded" action="{!c.onResourcesLoaded}" />
-    <aura:handler name="CoveoV2:InterfaceContentLoaded" event="CoveoV2:InterfaceContentLoaded" action="{!c.onInterfaceContentLoaded}" />
+  <div id="standaloneSearchbox" class="coveo-search-box-wrapper">
+    <div class="CoveoSearchbox" type="text" data-enable-omnibox="true" data-enable-reveal-query-suggest-addon="true"></div>
+  </div>
 </aura:component>

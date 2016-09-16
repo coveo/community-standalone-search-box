@@ -1,8 +1,5 @@
 <design:component>
     <design:attribute name='name' label='Name' description='Name of the interface you wish to create.' />
-    <design:attribute name='autoInjectBasicQuery' label='Auto inject basic query' description='Whether the interface should automatically inject the basic part of the query' />
-    <design:attribute name='autoInjectBasicOptions' label='Auto inject basic options' description='Whether the interface should automatically inject some basic options on the interface' />
-    <design:attribute name='debug' label='Debug' description='Whether the interface should load the non-minified versions of the different ressources' />
     <design:attribute name='searchHub' label='Search Hub' description='The name of the search hub, used for Analytics reporting.' />
     <design:attribute name='searchUrl' label='Search Url' description='The url of the search page' />
 </design:component>

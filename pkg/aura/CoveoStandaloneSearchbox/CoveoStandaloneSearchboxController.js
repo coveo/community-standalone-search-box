@@ -1,24 +1,49 @@
 ({
-    onResourcesLoaded: function(cmp, event, helper) {
-        helper.debugLog(cmp, 'onResourcesLoaded');
-        helper.checkLibConflicts();
+  onScriptLoaded: function (cmp, event, helper) {
+    var name = cmp.get('v.name');
+    var searchHub = cmp.get('v.searchHub');
+    var searchUrl = cmp.get('v.searchUrl');
 
-        var searchbox = cmp.find('StandaloneSearchbox');
-        searchbox.set('v.name', cmp.get('v.name'));
-        searchbox.set('v.autoInjectBasicQuery', false);
-        searchbox.set('v.autoInitialize', false);
-        searchbox.set('v.autoInjectBasicOptions', true);
-        searchbox.set('v.debug', cmp.get('v.debug'));
-        searchbox.set('v.searchHub', cmp.get('v.searchHub'));
+    var getInitializationAction = cmp.get('c.getToken');
 
-    },
-    onInterfaceContentLoaded: function(cmp, event, helper) {
-        helper.debugLog(cmp, 'onInterfaceContentLoaded');
-        var name = cmp.get('v.name');
-        var searchUrl = 'coveosearch';
-        var searchHub = cmp.get('v.searchHub');
+    getInitializationAction.setParams({
+      searchHub: searchHub
+    });
 
-        helper.initializeInterface(cmp, name, searchHub, searchUrl);
+    getInitializationAction.setCallback(this, function (initializationResponse) {
+      var parsed = JSON.parse(initializationResponse.returnValue);
 
-    }
+      if (window.location.pathname.indexOf(searchUrl) < 0) {
+        Coveo.SearchEndpoint.endpoints[name] = new Coveo.SearchEndpoint({
+          restUri: 'https://cloudplatformdev.coveo.com/rest/search/',
+          accessToken: parsed.token
+        });
+
+        Coveo.$("#standaloneSearchbox").coveo('options', {
+          StandaloneSearchInterface: {
+            endpoint: Coveo.SearchEndpoint.endpoints[name]
+          }
+        });
+        Coveo.$("#standaloneSearchbox").coveo('initSearchbox', searchUrl);
+      } else {
+        var executeWhenSearchInterfaceIsLoaded = function (callback) {
+          if ($('.CoveoSearchInterface').length == 0) {
+            setTimeout(function () {
+              executeWhenSearchInterfaceIsLoaded(callback);
+            }, 10)
+          } else {
+            callback();
+          }
+        }
+
+        executeWhenSearchInterfaceIsLoaded(function () {
+          $('.CoveoSearchInterface').coveo('init', {
+            externalComponents: [$('#standaloneSearchbox').get(0)]
+          });
+        });
+      }
+    });
+
+    $A.enqueueAction(getInitializationAction);
+  }
 })
