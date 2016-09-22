@@ -33,3 +33,16 @@ Save it and that's it ! Gulp should now be able to deploy the component into you
 ```
 gulp
 ```
+
+#How do I use it ?
+
+Let's assume you already have a Coveo search page in your community.
+
+First, you'll need to edit the Coveo Search lightning component and uncheck the `Auto-initilize` option.
+
+Next, go to the `Settings` > `Theme` tab in your Community builder.
+You should see an option named `Use a custom search component`, enable it and select the `CoveoSearchBar` in the dropdown below it.
+
+Finally, go back to the `Page Editor` and select the search bar.
+The default "search url" (your Coveo search page name) is `coveosearch`, change it if needed.
+
