@@ -46,7 +46,7 @@ You should see an option named `Use a custom search component`, enable it and se
 Finally, go back to the `Page Editor` and select the search bar.
 The default "search url" (your Coveo search page name) is `coveosearch`, change it if needed.
 
-# Known issues
+# Known issues / disclaimer
 The project is meant to be an example of what you can achieve with the new "search region" and Coveo's search box.
 There's still some known issues and we don't support that component as for now so use it at your own risk.
 
